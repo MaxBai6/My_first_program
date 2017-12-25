@@ -133,10 +133,10 @@ Install
 
 .. code-block:: console
 
-   $ pip install elementary_math
+   $ pip install My_first_program
 
 To upgrade to latest version:
 
 .. code-block:: console
 
-   $ pip install --upgrade elementary_math
+   $ pip install --upgrade My_first_program
