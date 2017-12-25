@@ -18,17 +18,17 @@ requirements = [str(ir.req) for ir in parse_requirements("requirements.txt", ses
 
 
 setup(
-    name="jqdatasdk",
+    name="My_first_program",
     version=version,
-    description="jqdatasdk<SDK of fetch finance data from JoinQuant>",
-    packages=["jqdatasdk", "jqdatasdk.macro_tables"],
+    description="My_first_program of fetch finance data from JoinQuant>",
+    packages=["My_first_program", "My_first_program2"],
     author="JoinQuant",
     author_email="xlx@joinquant.com",
     maintainer="wangchaoyang",
     maintainer_email="wangchaoyang@joinquant.com",
     license='Apache License v2',
     package_data={'': ['*.*']},
-    url="https://www.joinquant.com/data",
+    url="https://github.com/MaxBai6/My_first_program",
     install_requires=requirements,
     zip_safe=False,
     platforms=["all"],
