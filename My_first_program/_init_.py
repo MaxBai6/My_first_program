@@ -9,7 +9,7 @@ from .macro import macro
 
 
 __all__ = [
-    "get_price"
+    "add_one"
 ]
 
 
