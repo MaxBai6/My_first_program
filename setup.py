@@ -21,7 +21,7 @@ setup(
     name="My_first_program",
     version=version,
     description="My_first_program of fetch finance data from JoinQuant>",
-    packages=["My_first_program", "My_first_program2"],
+    packages=["My_first_program"],
     author="JoinQuant",
     author_email="xlx@joinquant.com",
     maintainer="wangchaoyang",
