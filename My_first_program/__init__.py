@@ -21,6 +21,11 @@ __maintainer_email__ = "Max@me.com"
 __github_username__ = "Max"
 
 
+def add_two(a):
+    """Return a + 2.
+    """
+    return a + 2
+
 __all__ = [
     "add_one"
 ]
