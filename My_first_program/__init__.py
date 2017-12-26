@@ -7,6 +7,21 @@ from .api import *
 from .finance_service import *
 from .macro import macro
 
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+"""
+Elementary Math Library. (For demonstration purpose only)
+"""
+
+__version__ = "0.0.1"
+__short_description__ = "Elementary Mathematics."
+__author__ = "Max"
+__author_email__ = "Max@me.com"
+__maintainer__ = "Max"
+__maintainer_email__ = "Max@me.com"
+__github_username__ = "Max"
+
 
 __all__ = [
     "add_one"
