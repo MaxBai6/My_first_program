@@ -6,7 +6,7 @@ from os.path import dirname, join
 from pip.req import parse_requirements
 
 from setuptools import (
-    setup,
+    setup
 )
 
 
