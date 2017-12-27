@@ -12,6 +12,10 @@ familybjp@gmail.com
 ```
 pip install git+https://github.com/MaxBai6/My_first_program.git
 ```
+#### 安装要求
+```
+numpy>=1.9.2
+```
 #### 更新
 
 还没弄更新，可以在C:\python\Lib\site-packages\中找到这个包，删除，然后按照安装步骤重新下最新版本。（估计暂时没人会下我的包第二次:(）
