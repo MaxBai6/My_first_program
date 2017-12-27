@@ -1,23 +1,7 @@
 # coding=utf-8
-import six
-import datetime
-from functools import wraps
-import re
+
 import pandas as pd
-if six.PY2:
-    import cPickle as pickle
-else:
-    import pickle as pickle
 
-
-class Security(object):
-    code = None
-    display_name = None
-    name = None
-    start_date = None
-    end_date = None
-    type = None
-    parent = None
 
     def __init__(self, **kwargs):
         self.code = kwargs.get("code", None)
@@ -34,54 +18,6 @@ class Security(object):
     def __str__(self):
         return self.code
 
-
-def no_sa_warnings(f):
-    @wraps(f)
-    def wrapper(*args, **kwds):
-        import warnings
-        from sqlalchemy import exc as sa_exc
-        with warnings.catch_warnings():
-            warnings.simplefilter("ignore", category=sa_exc.SAWarning)
-            return f(*args, **kwds)
-    return wrapper
-
-
-def get_tables_from_sql(sql):
-    """ 从 sql 语句中拿到所有引用的表名字 """
-    m = re.search(r'FROM (.*?)($| WHERE| GROUP| HAVING| ORDER)', sql, flags=re.M)
-    return [t.strip() for t in m.group(1).strip().split(',')] if m else []
-
-
-@no_sa_warnings
-def check_no_join(query):
-    """ 确保 query 中没有 join 语句, 也就是说: 没有引用多个表 """
-    tables = get_tables_from_sql(str(query.statement))
-    if len(tables) != 1:
-        raise Exception("only a table is allowed to query every time")
-
-
-def compile_query(query):
-    """ 把一个 sqlalchemy query object 编译成mysql风格的 sql 语句 """
-    from sqlalchemy.sql import compiler
-    from sqlalchemy.dialects import mysql as mysql_dialetct
-    from pymysql.converters import conversions, escape_item, encoders
-
-    dialect = mysql_dialetct.dialect()
-    statement = query.statement
-    comp = compiler.SQLCompiler(dialect, statement)
-    comp.compile()
-    enc = dialect.encoding
-    comp_params = comp.params
-    params = []
-    for k in comp.positiontup:
-        v = comp_params[k]
-        if six.PY2 and isinstance(v, unicode):
-            v = v.encode(enc)
-        if six.PY3 and isinstance(v, bytes):
-            v = v.decode(enc)
-        v = escape_item(v, conversions, encoders)
-        params.append(v)
-    return (comp.string % tuple(params))
 
 
 class ParamsError(Exception):
