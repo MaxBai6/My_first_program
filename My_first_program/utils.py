@@ -1,14 +1,6 @@
 # coding=utf-8
-import six
-import datetime
-from functools import wraps
-import re
-import pandas as pd
-if six.PY2:
-    import cPickle as pickle
-else:
-    import pickle as pickle
 
+import pandas as pd
 
 class Security(object):
     code = None
@@ -60,28 +52,7 @@ def check_no_join(query):
         raise Exception("only a table is allowed to query every time")
 
 
-def compile_query(query):
-    """ 把一个 sqlalchemy query object 编译成mysql风格的 sql 语句 """
-    from sqlalchemy.sql import compiler
-    from sqlalchemy.dialects import mysql as mysql_dialetct
-    from pymysql.converters import conversions, escape_item, encoders
 
-    dialect = mysql_dialetct.dialect()
-    statement = query.statement
-    comp = compiler.SQLCompiler(dialect, statement)
-    comp.compile()
-    enc = dialect.encoding
-    comp_params = comp.params
-    params = []
-    for k in comp.positiontup:
-        v = comp_params[k]
-        if six.PY2 and isinstance(v, unicode):
-            v = v.encode(enc)
-        if six.PY3 and isinstance(v, bytes):
-            v = v.decode(enc)
-        v = escape_item(v, conversions, encoders)
-        params.append(v)
-    return (comp.string % tuple(params))
 
 
 class ParamsError(Exception):
@@ -92,43 +63,12 @@ def today():
     return datetime.date.today()
 
 
-def is_str(s):
-    return isinstance(s, six.string_types)
 
 
-def to_date_str(dt):
-    if dt is None:
-        return None
-
-    if isinstance(dt, six.string_types):
-        return dt
-    if isinstance(dt, datetime.datetime):
-        return dt.strftime("%Y-%m-%d %H:%M:%S")
-    if isinstance(dt, datetime.date):
-        return dt.strftime("%Y-%m-%d")
 
 
 def is_list(l):
     return isinstance(l, (list, tuple))
-
-
-def convert_security(s):
-    if isinstance(s, six.string_types):
-        return s
-    elif isinstance(s, Security):
-        return str(s)
-    elif isinstance(s, (list, tuple)):
-        res = []
-        for i in range(len(s)):
-            if isinstance(s[i], Security):
-                res.append(str(s[i]))
-            elif isinstance(s[i], six.string_types):
-                res.append(s[i])
-            else:
-                raise ParamsError("can't find symbol {}".format(s[i]))
-        return res
-    else:
-        raise ParamsError("security's type should be Security or list")
 
 
 def to_date(date):
@@ -166,8 +106,5 @@ def _get_session():
 
 session = _get_session()
 
-
-def query(*args, **kwargs):
-    return session.query(*args, **kwargs)
 
 
