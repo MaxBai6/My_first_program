@@ -24,7 +24,10 @@ x=My_first_program.add_two(2)
 
 result：x=4
 ```
-
+```
+import My_first_program.api as mfpa
+b=mfpa.add_one(2)
+```
 
 
 #### 现有功能
