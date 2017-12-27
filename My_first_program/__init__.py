@@ -3,7 +3,6 @@ import sys
 import os
 sys.modules["ROOT_DIR"] = os.path.abspath(os.path.dirname(__file__))
 
-from .api import *
 
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
