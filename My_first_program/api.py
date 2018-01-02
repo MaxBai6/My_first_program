@@ -1,5 +1,4 @@
 # coding=utf-8
-from jqdata import *
 from pandas.core.frame import DataFrame
 import pandas as pd
 import numpy as np
