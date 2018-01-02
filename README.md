@@ -44,5 +44,5 @@ b=mfpa.add_one(2)
   用于分析滞后时间数据与另一数据（价格）的线性相关性。例如：可以用来测量滞后的GDP数据和股市的相关性。
   返回corr和R方与滞后时间的关系表。
   
-  
-  
+  ![image](https://github.com/MaxBai6/My_first_program/blob/master/%E5%9B%BE.PNG）
+  
