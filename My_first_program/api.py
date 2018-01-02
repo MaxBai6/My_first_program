@@ -45,7 +45,7 @@ def N_month_ago(DATA,data_name,month_name,n=0):
     new_month=DataFrame(new_month)
     DATA['date_new{0}'.format(n)]=new_month
 
-def r2_table(table1,table2,month_name,data_name1,data_name2):
+def r2_table(x1,x2,table1,table2,month_name,data_name1,data_name2):
     Price=table1
     DATA2=table2
 
@@ -56,7 +56,7 @@ def r2_table(table1,table2,month_name,data_name1,data_name2):
     coef=[]
     p=[]
 
-    for n in range(-12,6):
+    for n in range(x1,x2):
     #for i in [-2,-7]:
         DATA=copy.deepcopy(DATA2)
         N_month_ago(DATA,data_name2,month_name,n)
