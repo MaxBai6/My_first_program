@@ -39,3 +39,10 @@ b=mfpa.add_one(2)
 - add_two(x)
 
   返回x+2
+- r2_table(x1,x2,table1,table2,month_name,data_name1,data_name2)
+
+  用于分析滞后时间数据与另一数据（价格）的线性相关性。例如：可以用来测量滞后的GDP数据和股市的相关性。
+  返回corr和R方与滞后时间的关系表。
+  
+  
+  
