@@ -59,8 +59,8 @@ b=mfpa.add_one(2)
   
   ![图.PNG](https://github.com/MaxBai6/My_first_program/blob/master/图.PNG）
   
-  ![20-f.png][1]
-  
+  ![sssss](15.png)
+  
   如上图所示，测量输出的是滞后的CPI月增长率与HS300的关系
   
   其中corr是两者的线性相关性，r2是解释率。由表可知滞后1个月和3个月的CPI月增长率与沪深300指数关系较大，分别可解释8%和9%的沪深300变化。
