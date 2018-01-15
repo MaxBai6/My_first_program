@@ -58,6 +58,7 @@ b=mfpa.add_one(2)
   DATA_corr=mfpa.r2_table(-12,6,Price,DATA2,month_name='stat_month',data_name1='close_rate',data_name2='CPI_rate')
   
   ![image](https://github.com/MaxBai6/My_first_program/blob/master/%E5%9B%BE.PNG）
+  
   ![20-f.png][1]
   
   如上图所示，测量输出的是滞后的CPI月增长率与HS300的关系
