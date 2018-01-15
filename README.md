@@ -58,8 +58,11 @@ b=mfpa.add_one(2)
   DATA_corr=mfpa.r2_table(-12,6,Price,DATA2,month_name='stat_month',data_name1='close_rate',data_name2='CPI_rate')
   
   ![image](https://github.com/MaxBai6/My_first_program/blob/master/%E5%9B%BE.PNG）
+  ![20-f.png][1]
   
   如上图所示，测量输出的是滞后的CPI月增长率与HS300的关系
   
   其中corr是两者的线性相关性，r2是解释率。由表可知滞后1个月和3个月的CPI月增长率与沪深300指数关系较大，分别可解释8%和9%的沪深300变化。
   
+  
+   [17]: https://image.joinquant.net/3ff318326b4c094d6de3022742401e95
